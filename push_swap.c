@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/25 19:52:03 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/25 21:56:52 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,23 @@ int	main(int ac, char **av)
 	if (ac < 1)
 		return (0);
 	b_list *test = ft_table(ac, av);
-	ft_sa(&test);
+	b_list *test2 = lstnew(2);
+	lstaddback(&test2, lstnew(6));
+	ft_ra(&test);
 	while (test)
 	{
 		printf("%d\n", test->num);
 		if (test->next == NULL)
 			break ;
 		test = test->next;
+	}
+	printf("\n");
+	while (test2)
+	{
+		printf("%d\n", test2->num);
+		if (test2->next == NULL)
+			break ;
+		test2 = test2->next;
 	}
 	// test = test->next;
 	// printf("%d", test->num);

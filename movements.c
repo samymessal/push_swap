@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:48:43 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/25 19:55:12 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/25 22:20:25 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,72 @@ void	ft_ss(b_list **a, b_list **b)
 	ft_sb(b);
 }
 
+void	ft_pa(b_list **a, b_list **b)
+{
+	b_list	*temp;
+	b_list	*temp2;
+
+	temp = *b;
+	*b = (*b)->next;
+	temp2 = *a;
+	temp->next = temp2;
+	*a = temp;
+}
+
+void	ft_pb(b_list **b, b_list **a)
+{
+	b_list	*temp;
+	b_list	*temp2;
+
+	temp = *b;
+	*b = (*b)->next;
+	temp2 = *a;
+	temp->next = temp2;
+	*a = temp;
+}
+
+void	ft_ra(b_list **a)
+{
+	b_list	*temp;
+	b_list	*temp2;
+	
+	temp = *a;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = *a;
+	temp2 = *a;
+	*a = (*a)->next;
+	temp2->next = NULL;
+}
+
+void	ft_rb(b_list **b)
+{
+	b_list	*temp;
+	b_list	*temp2;
+	
+	temp = *b;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = *b;
+	temp2 = *b;
+	*b = (*b)->next;
+	temp2->next = NULL;
+}
+
+void	ft_rr(b_list **a, b_list **b)
+{
+	ft_ra(a);
+	ft_rb(b);
+}
+
+// void	ft_rra(b_list **a)
+// {
+// 	b_list	*temp;
+// 	b_list	*temp2;
+
+// 	temp = *a;
+// 	while (temp)
+// 		temp = temp->next;
+// 	temp
+	
+// }
