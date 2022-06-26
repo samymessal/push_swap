@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:48:43 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/25 22:20:25 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/26 17:29:16 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,14 +111,40 @@ void	ft_rr(b_list **a, b_list **b)
 	ft_rb(b);
 }
 
-// void	ft_rra(b_list **a)
-// {
-// 	b_list	*temp;
-// 	b_list	*temp2;
+void	ft_rra(b_list **a)
+{
+	b_list	*temp;
+	b_list	*temp2;
 
-// 	temp = *a;
-// 	while (temp)
-// 		temp = temp->next;
-// 	temp
-	
-// }
+	temp = *a;
+	temp2 = *a;
+	while (temp->next)
+		temp = temp->next;
+	while(temp2->next->next)
+		temp2 = temp2->next;
+	temp->next = *a;
+	*a = temp;
+	temp2->next = NULL;
+}
+
+void	ft_rrb(b_list **b)
+{
+	b_list	*temp;
+	b_list	*temp2;
+
+	temp = *b;
+	temp2 = *b;
+	while (temp->next)
+		temp = temp->next;
+	while(temp2->next->next)
+		temp2 = temp2->next;
+	temp->next = *b;
+	*b = temp;
+	temp2->next = NULL;
+}
+
+void	ft_rrr(b_list **a, b_list **b)
+{
+	ft_rra(a);
+	ft_rrb(b);
+}

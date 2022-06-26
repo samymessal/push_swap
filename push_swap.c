@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/25 21:56:52 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/26 17:28:13 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 	b_list *test = ft_table(ac, av);
 	b_list *test2 = lstnew(2);
 	lstaddback(&test2, lstnew(6));
-	ft_ra(&test);
+	ft_rra(&test);
 	while (test)
 	{
 		printf("%d\n", test->num);
@@ -50,6 +50,7 @@ int	main(int ac, char **av)
 		test = test->next;
 	}
 	printf("\n");
+	ft_rrb(&test2);
 	while (test2)
 	{
 		printf("%d\n", test2->num);
