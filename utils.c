@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/25 19:49:32 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/28 23:06:41 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	lstaddback(b_list **list, b_list *new)
 	temp->next = new;
 }
 
-b_list	*lstnew(int num)
+b_list	*lstnew(int num, int index)
 {
 	b_list	*new;
 	
@@ -50,7 +50,30 @@ b_list	*lstnew(int num)
 	if (!new)
 		return (NULL);
 	new->num = num;
+	new->index = index;
 	new->next = NULL;
 	return (new);
 }
 
+int	ft_getmin(b_list *b)
+{
+	b_list	*temp;
+	int	min;
+
+	temp = b;
+	min = temp->num;
+	while(temp)
+	{
+		
+	}	
+}
+
+/*
+Obtain min
+check index with length of list
+decide if ra or rra
+pa
+adjust indexes with variable that stocks number of calls to ra/rra - 1 because of pa
+repeat
+pb until b empty
+*/

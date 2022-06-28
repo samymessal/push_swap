@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/26 17:28:28 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/28 22:59:44 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ typedef struct	a_list
 {
 	struct a_list *next;
 	int	num;
+	int	index;
 }				b_list;
 b_list	*ft_table(int ac, char **arg);
-b_list	*lstnew(int num);
+b_list	*lstnew(int num, int index);
 void	lstaddback(b_list **list, b_list *new);
 int	lstsize(b_list *lst);
 void	ft_sa(b_list **a);
