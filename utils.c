@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/28 23:06:41 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/30 13:15:16 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,59 @@ b_list	*lstnew(int num, int index)
 	return (new);
 }
 
-int	ft_getmin(b_list *b)
+int	ft_getmin(b_list *a)
 {
 	b_list	*temp;
 	int	min;
 
-	temp = b;
+	temp = a;
 	min = temp->num;
 	while(temp)
 	{
-		
-	}	
+		temp = temp->next;
+		if (temp->num < min)
+			min = temp->num;
+		if (temp->next == NULL)
+			break ; 
+	}
+	return (min);
 }
 
+void	ft_move(b_list **a, b_list **b)
+{
+	b_list	*temp;
+	int		min;
+	int		index;
+
+	temp = *a;
+	min = ft_getmin(*a);
+	while(temp)
+	{
+		temp = temp->next;
+		if (temp->num == min)
+			break;
+		if (temp->next == NULL)
+			break ;
+	}
+	index = temp->index;
+	if (index > lstsize(*a)/2)
+		while ((*a)->num != min)
+			ft_rra(a);
+	else
+		while ((*a)->num != min)
+			ft_ra(a);
+	ft_pa(a, b);
+}
+
+void	ft_loop(b_list **a, b_list **b)
+{
+	while ((*a))
+	{
+		ft_move(a, b);
+		if ((*a)->next == NULL)
+			ft_pa(a, b);
+	}
+}
 /*
 Obtain min
 check index with length of list

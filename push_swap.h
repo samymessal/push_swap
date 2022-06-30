@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/28 22:59:44 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/30 13:11:10 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,8 @@ void	ft_rb(b_list **b);
 void	ft_rr(b_list **a, b_list **b);
 void	ft_rra(b_list **a);
 void	ft_rrb(b_list **b);
+void	ft_move(b_list **a, b_list **b);
+int		ft_getmin(b_list *a);
+void	ft_loop(b_list **a, b_list **b);
 
 #endif
