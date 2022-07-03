@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/03 17:00:54 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/03 21:12:09 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft/libft.h"
+#include <limits.h>
+#include <unistd.h>
 
 typedef struct	a_list
 {
@@ -46,6 +48,8 @@ void	ft_first_push(b_list **a, b_list **b);
 void	ft_algo(b_list **a, b_list **b);
 int		ft_cost(b_list **a);
 int		ft_getindex(b_list **a, int val);
+int 	ft_check_num(char **av, int i);
+int 	ft_checkdup(b_list **a);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 11:56:25 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/25 19:42:27 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/03 20:35:48 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t size);
 int		ft_memcmp(const void *ptr1, const void *ptr2, size_t size);
-int		ft_atoi(const char *str);
+long long int		ft_atoi(const char *str);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *s1, const char *s2, size_t size);

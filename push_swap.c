@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/03 19:09:59 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/03 21:13:34 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ b_list	*ft_table(int ac, char **arg)
 		arg = ft_split(arg[1], ' ');
 		i = 0;
 	}
+	if (!ft_check_num(arg, i))
+	{
+		write(1, "Error\n", 6);
+		return (NULL);
+	}
 	while(arg[i])
 	{
 		temp = lstnew(ft_atoi(arg[i]), j);
@@ -34,35 +39,40 @@ b_list	*ft_table(int ac, char **arg)
 		i++;
 		j++;
 	}
+	if (!ft_checkdup(&a))
+	{
+		write(1, "Error\n", 6);
+		return (NULL);
+	}
 	return (a);
 }
 
 int	main(int ac, char **av)
 {
-	if (ac < 1)
+	if (ac < 2)
 		return (0);
 	b_list *test = ft_table(ac, av);
 	b_list *test2 = malloc(sizeof(b_list));
 
 	test2 = NULL;
 
-	ft_loop(&test, &test2);
-	// ft_move(&test, &test2);
-	// ft_move(&test, &test2);
-	//ft_move(&test, &test2);
-	//ft_move(&test, &test2);
+	// //ft_loop(&test, &test2);
+	// // ft_move(&test, &test2);
+	// // ft_move(&test, &test2);
+	// //ft_move(&test, &test2);
+	// //ft_move(&test, &test2);
 	
-	// ft_pb(&test2, &test);
-	printf("a\t\tb\n\n");
-	while (test || test2)
-	{
-		printf("%d\t\t%d\n", test->num, test2->num);
-		if (test->next == NULL)
-			break ;
-		test = test->next;
-		if(test2->next)
-			test2 = test2->next;
-	}
+	// // ft_pb(&test2, &test);
+	// printf("a\t\tb\n\n");
+	// while (test || test2)
+	// {
+	// 	printf("%d\t\t%d\n", test->num, test2->num);
+	// 	if (test->next == NULL)
+	// 		break ;
+	// 	test = test->next;
+	// 	if(test2->next)
+	// 		test2 = test2->next;
+	// }
 	// printf("\n");
 	
 	// while (test2)
@@ -74,6 +84,6 @@ int	main(int ac, char **av)
 	// }
 	// test = test->next;
 	// printf("%d", test->num);
-	
+
 	return (0);
 }
