@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/30 13:15:16 by smessal          ###   ########.fr       */
+/*   Updated: 2022/06/30 18:48:22 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,41 +73,77 @@ int	ft_getmin(b_list *a)
 	return (min);
 }
 
-void	ft_move(b_list **a, b_list **b)
+int	ft_getmax(b_list *a)
 {
 	b_list	*temp;
-	int		min;
-	int		index;
+	int	max;
 
-	temp = *a;
-	min = ft_getmin(*a);
+	temp = a;
+	max = temp->num;
 	while(temp)
 	{
 		temp = temp->next;
-		if (temp->num == min)
-			break;
+		if (temp->num > max)
+			max = temp->num;
 		if (temp->next == NULL)
-			break ;
+			break ; 
 	}
-	index = temp->index;
-	if (index > lstsize(*a)/2)
-		while ((*a)->num != min)
-			ft_rra(a);
-	else
-		while ((*a)->num != min)
-			ft_ra(a);
-	ft_pa(a, b);
+	return (max);	
 }
 
-void	ft_loop(b_list **a, b_list **b)
+void	ft_uptade_index(b_list **a)
 {
-	while ((*a))
+	int	i;
+	b_list	*temp;
+
+	i = 0;
+	temp = *a;
+	while (temp)
 	{
-		ft_move(a, b);
-		if ((*a)->next == NULL)
-			ft_pa(a, b);
+		temp->index = i;
+		i++;
+		if (temp->next == NULL)
+			break;
+		temp = temp->next;
 	}
 }
+
+void	ft_first_push(b_list **a, b_list **b)
+{
+	int	i;
+
+	i = lstsize(*a)/2;
+	while (i)
+	{
+		ft_pa(a, b);
+		i--;
+	}
+}
+
+void	ft_algo(b_list **a, b_list **b)
+{
+	int	size;
+
+	size = lstsize(*a)/2;
+	while(size > 1)
+	{
+		if ((*a)->num > ft_getmax(*b))
+		{
+			ft_pb(b, a);
+			if ((*a)->num < ft_getmin(*b))
+				ft_pa(a, b);
+		}
+		else if ((*a)->num < ft_getmax(*b))
+		{
+			ft_pa(a, b);
+			if ((*a)->num > ft_getmin(*b))
+				ft_pb(b, a);
+		}
+		ft_rr(a, b);
+		size--;
+	}
+}
+
 /*
 Obtain min
 check index with length of list
@@ -116,4 +152,15 @@ pa
 adjust indexes with variable that stocks number of calls to ra/rra - 1 because of pa
 repeat
 pb until b empty
+*/
+
+// idea 2
+
+/*
+Put half of the list in b
+Calculate min max of a & b
+if (min b < min a)
+	ft_move(a)
+if (min b > min a)
+	ft_move(b)
 */

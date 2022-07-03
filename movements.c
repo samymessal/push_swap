@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:48:43 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/28 22:56:25 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/03 19:07:05 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_pa(b_list **a, b_list **b)
 	temp2 = *b;
 	temp->next = temp2;
 	*b = temp;
+	//printf("pa\n");
 }
 
 void	ft_pb(b_list **b, b_list **a)

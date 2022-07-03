@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/30 13:13:23 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/03 19:09:59 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,35 @@ int	main(int ac, char **av)
 	b_list *test2 = malloc(sizeof(b_list));
 
 	test2 = NULL;
-	//ft_move(&test, &test2);
+
 	ft_loop(&test, &test2);
-	// ft_pa(&test, &test2);
+	// ft_move(&test, &test2);
+	// ft_move(&test, &test2);
+	//ft_move(&test, &test2);
+	//ft_move(&test, &test2);
+	
 	// ft_pb(&test2, &test);
 	printf("a\t\tb\n\n");
-	// while (test || test2)
-	// {
-	// 	printf("%d\t\t%d\n", test->num, test2->num);
-	// 	if (test->next == NULL)
-	// 		break ;
-	// 	test = test->next;
-	// 	if(test2->next)
-	// 		test2 = test2->next;
-	// }
+	while (test || test2)
+	{
+		printf("%d\t\t%d\n", test->num, test2->num);
+		if (test->next == NULL)
+			break ;
+		test = test->next;
+		if(test2->next)
+			test2 = test2->next;
+	}
 	// printf("\n");
 	
-	while (test2)
-	{
-		printf("%d\n", test2->num);
-		if (test2->next == NULL)
-			break ;
-		test2 = test2->next;
-	}
+	// while (test2)
+	// {
+	// 	printf("%d\n", test2->num);
+	// 	if (test2->next == NULL)
+	// 		break ;
+	// 	test2 = test2->next;
+	// }
 	// test = test->next;
 	// printf("%d", test->num);
 	
-	return (1);
+	return (0);
 }
