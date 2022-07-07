@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:48:43 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/03 19:07:05 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/07 15:49:51 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,25 @@ void	ft_ss(b_list **a, b_list **b)
 void	ft_pa(b_list **a, b_list **b)
 {
 	b_list	*temp;
-	b_list	*temp2;
 
-	temp = *a;
-	*a = (*a)->next;
-	temp2 = *b;
-	temp->next = temp2;
-	*b = temp;
-	//printf("pa\n");
-}
-
-void	ft_pb(b_list **b, b_list **a)
-{
-	b_list	*temp;
-	b_list	*temp2;
-
+	if (*b == NULL)
+		return ;
 	temp = *b;
 	*b = (*b)->next;
-	temp2 = *a;
-	temp->next = temp2;
+	temp->next = *a;
 	*a = temp;
+	printf("pa\n");
+}
+
+void	ft_pb(b_list **a, b_list **b)
+{
+	b_list	*temp;
+
+	if (*a == NULL)
+		return ;
+	temp = *a;
+	*a = (*a)->next;
+	temp->next = *b;
+	*b = temp;
+	printf("pb\n");
 }

@@ -6,17 +6,22 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:06:21 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/03 21:16:44 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/07 12:06:19 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_check_num(char **av, int i)
+int ft_check_num(int ac, char **av)
 {
     int j;
+	int	i;
 
     j = 0;
+	if (ac > 2)
+		i = 1;
+	else
+		i = 0;
     while(av[i])
     {
         if (ft_strlen(av[i]) > 11 || ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/30 18:48:22 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/07 17:56:35 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,39 +108,39 @@ void	ft_uptade_index(b_list **a)
 	}
 }
 
-void	ft_first_push(b_list **a, b_list **b)
+int	ft_issorted(b_list **a)
 {
-	int	i;
+	b_list	*temp;
 
-	i = lstsize(*a)/2;
-	while (i)
+	temp = *a;
+	while (temp)
 	{
-		ft_pa(a, b);
-		i--;
+		if (temp->next && temp->num > temp->next->num)
+			return (0);
+		temp = temp->next;
 	}
+	return (1);
 }
 
-void	ft_algo(b_list **a, b_list **b)
+void	ft_ind_final(b_list **a)
 {
-	int	size;
+	b_list	*temp;
+	b_list	*temp2;
+	int		ind_final;
 
-	size = lstsize(*a)/2;
-	while(size > 1)
+	temp = *a;
+	while (temp)
 	{
-		if ((*a)->num > ft_getmax(*b))
+		ind_final = 0;
+		temp2 = *a;
+		while (temp2)
 		{
-			ft_pb(b, a);
-			if ((*a)->num < ft_getmin(*b))
-				ft_pa(a, b);
+			if (temp->num > temp2->num)
+				ind_final++;
+			temp2 = temp2->next;
 		}
-		else if ((*a)->num < ft_getmax(*b))
-		{
-			ft_pa(a, b);
-			if ((*a)->num > ft_getmin(*b))
-				ft_pb(b, a);
-		}
-		ft_rr(a, b);
-		size--;
+		temp->ind_final = ind_final;
+		temp = temp->next;
 	}
 }
 

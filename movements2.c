@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 22:55:59 by smessal           #+#    #+#             */
-/*   Updated: 2022/06/30 18:17:44 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/07 15:20:53 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_ra(b_list **a)
 	temp2 = *a;
 	*a = (*a)->next;
 	temp2->next = NULL;
-	//printf("ra\n");
+	printf("ra\n");
 }
 
 void	ft_rb(b_list **b)
@@ -61,7 +61,7 @@ void	ft_rra(b_list **a)
 	temp->next = *a;
 	*a = temp;
 	temp2->next = NULL;
-	//printf("rra\n");
+	printf("rra\n");
 }
 
 void	ft_rrb(b_list **b)
