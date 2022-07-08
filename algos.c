@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/08 15:05:31 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/08 17:55:45 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,26 @@ void	ft_longsuit(b_list **a, b_list **b)
 	b_list	*temp2;
 	int		suit;
 	int		stock;
+	int		count;
 	
 	temp = *a;
 	while (temp)
 	{
-		temp2 = temp->next;
-		suit = 1;
-		if (temp2)
-			stock = temp2->num;
-		while (temp2 && temp2->num != temp->num)
+		temp2 = temp;
+		suit = 0;
+		stock = temp2->num;
+		count = 0;
+		while (count++ < lstsize(*a))
 		{
 			if (temp2->next && stock < temp2->next->num)
 			{
-				suit++;
+				temp->suit++;
 				stock = temp2->next->num;
 			}
 			temp2 = temp2->next;
 			if (!temp2)
 				temp2 = *a;
 		}
-		temp->suit = suit;
 		temp = temp->next;
 	}
 }

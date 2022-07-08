@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/08 14:39:42 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/08 17:47:39 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		ft_issorted(b_list **a);
 void	ft_sort3(b_list **a);
 void	ft_sort5(b_list **a, b_list **b);
 void	ft_ind_final(b_list **a);
+void	ft_longsuit(b_list **a, b_list **b);
 
 
 #endif

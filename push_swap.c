@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/08 14:28:54 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/08 17:47:48 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ int	main(int ac, char **av)
 	// 	if (test2 && test2->next)
 	// 		test2 = test2->next;
 	// }
-	
+	ft_longsuit(&test, &test2);
 	printf("a\t\tb\n\n");
 	while (test || test2)
 	{
-		printf("%d\t\t", test->ind_final);
+		printf("%d\t\t", test->suit);
 		if (test2)
-			printf("%d\n", test2->ind_final);
+			printf("%d\n", test2->suit);
 		else
 			printf(" \n");
 		if (test->next == NULL)
