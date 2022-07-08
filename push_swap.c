@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/07 17:21:40 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/08 14:28:54 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ b_list	*ft_table(int ac, char **arg)
 		arg = ft_split(arg[1], ' ');
 		i = 0;
 	}
-	while(arg[i])
+	while (arg[i])
 	{
-		temp = lstnew(ft_atoi(arg[i]), j);
+		temp = lstnew(ft_atoi(arg[i++]), j++);
 		lstaddback(&a, temp);
-		i++;
-		j++;
 	}
 	if (!ft_checkdup(&a) || !ft_check_num(ac, arg))
 	{

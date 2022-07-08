@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/07 17:18:49 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/08 14:39:42 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	a_list
 	int	num;
 	int	index;
 	int	ind_final;
+	int	suit;
 }				b_list;
 b_list	*ft_table(int ac, char **arg);
 b_list	*lstnew(int num, int index);

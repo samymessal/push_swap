@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/07 17:03:43 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/08 15:05:31 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,33 @@ void	ft_sort5(b_list **a, b_list **b)
 	ft_sort3(a);
 	ft_pa(a, b);
 	ft_pa(a, b);
+}
+
+void	ft_longsuit(b_list **a, b_list **b)
+{
+	b_list	*temp;
+	b_list	*temp2;
+	int		suit;
+	int		stock;
+	
+	temp = *a;
+	while (temp)
+	{
+		temp2 = temp->next;
+		suit = 0;
+		stock = temp2->num;
+		while (temp2->num != temp->num)
+		{
+			if (stock < temp2->next->num)
+			{
+				suit++;
+				stock = temp2->next->num;
+			}
+			temp2 = temp2->next;
+			if (!temp2)
+				temp2 = *a;
+		}
+		temp2->suit = suit;
+		temp = temp->next;
+	}
 }
