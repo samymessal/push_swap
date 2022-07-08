@@ -63,11 +63,12 @@ void	ft_longsuit(b_list **a, b_list **b)
 	while (temp)
 	{
 		temp2 = temp->next;
-		suit = 0;
-		stock = temp2->num;
-		while (temp2->num != temp->num)
+		suit = 1;
+		if (temp2)
+			stock = temp2->num;
+		while (temp2 && temp2->num != temp->num)
 		{
-			if (stock < temp2->next->num)
+			if (temp2->next && stock < temp2->next->num)
 			{
 				suit++;
 				stock = temp2->next->num;
@@ -76,7 +77,7 @@ void	ft_longsuit(b_list **a, b_list **b)
 			if (!temp2)
 				temp2 = *a;
 		}
-		temp2->suit = suit;
+		temp->suit = suit;
 		temp = temp->next;
 	}
 }
