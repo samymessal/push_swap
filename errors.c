@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:06:21 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/07 12:06:19 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/09 15:06:13 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int ft_check_num(int ac, char **av)
     return (1);
 }
 
-int ft_checkdup(b_list **a)
+int ft_checkdup(t_stack **a)
 {
-    b_list  *temp;
-    b_list  *temp2;
+    t_stack  *temp;
+    t_stack  *temp2;
     int     num;
     
     temp = *a;

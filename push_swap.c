@@ -6,16 +6,16 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/08 17:47:48 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/09 18:53:18 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-b_list	*ft_table(int ac, char **arg)
+t_stack	*ft_table(int ac, char **arg)
 {
-	b_list	*a;
-	b_list	*temp;
+	t_stack	*a;
+	t_stack	*temp;
 	int		i;
 	int		j;
 
@@ -45,8 +45,8 @@ int	main(int ac, char **av)
 {
 	if (ac < 2)
 		return (0);
-	b_list *test = ft_table(ac, av);
-	b_list *test2 = malloc(sizeof(b_list));
+	t_stack *test = ft_table(ac, av);
+	t_stack *test2 = malloc(sizeof(t_stack));
 
 	test2 = NULL;
 	// ft_sort5(&test, &test2);
@@ -67,13 +67,24 @@ int	main(int ac, char **av)
 	// 	if (test2 && test2->next)
 	// 		test2 = test2->next;
 	// }
-	ft_longsuit(&test, &test2);
-	printf("a\t\tb\n\n");
+	ft_ind_final(&test);
+	ft_longsuit(&test);
+	ft_ind_push(&test);
+	ft_pushto_b(&test, &test2);
+	ft_costb(&test, &test2);
+	// ft_pa(&test, &test2);
+	// ft_costb(&test, &test2);
+	// ft_pa(&test, &test2);
+	// ft_costb(&test, &test2);
+	ft_final_push(&test, &test2);
+	//ft_final_push(&test, &test2);
+
+	printf("a\tfinal\tsuit\t\tb\tfinal\tcost\n\n");
 	while (test || test2)
 	{
-		printf("%d\t\t", test->suit);
+		printf("%d\t%d\t%d\t\t", test->num, test->ind_final, test->push_b);
 		if (test2)
-			printf("%d\n", test2->suit);
+			printf("%d\t%d\t%d\n", test2->num, test2->ind_final, test2->cost);
 		else
 			printf(" \n");
 		if (test->next == NULL)

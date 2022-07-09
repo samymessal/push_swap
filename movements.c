@@ -6,16 +6,16 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:48:43 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/07 15:49:51 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/09 15:06:30 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(b_list **a)
+void	ft_sa(t_stack **a)
 {
-	b_list	*temp;
-	b_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 
 	if (lstsize(*a) < 2)
 		return ;
@@ -29,10 +29,10 @@ void	ft_sa(b_list **a)
 	(*a)->next = temp2;
 }
 
-void	ft_sb(b_list **b)
+void	ft_sb(t_stack **b)
 {
-	b_list	*temp;
-	b_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 
 	if (lstsize(*b) < 2)
 		return ;
@@ -46,15 +46,15 @@ void	ft_sb(b_list **b)
 	(*b)->next = temp2;
 }
 
-void	ft_ss(b_list **a, b_list **b)
+void	ft_ss(t_stack **a, t_stack **b)
 {
 	ft_sa(a);
 	ft_sb(b);
 }
 
-void	ft_pa(b_list **a, b_list **b)
+void	ft_pa(t_stack **a, t_stack **b)
 {
-	b_list	*temp;
+	t_stack	*temp;
 
 	if (*b == NULL)
 		return ;
@@ -65,9 +65,9 @@ void	ft_pa(b_list **a, b_list **b)
 	printf("pa\n");
 }
 
-void	ft_pb(b_list **a, b_list **b)
+void	ft_pb(t_stack **a, t_stack **b)
 {
-	b_list	*temp;
+	t_stack	*temp;
 
 	if (*a == NULL)
 		return ;

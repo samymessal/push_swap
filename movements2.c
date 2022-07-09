@@ -6,16 +6,16 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 22:55:59 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/08 14:34:58 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/09 18:51:13 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ra(b_list **a)
+void	ft_ra(t_stack **a)
 {
-	b_list	*temp;
-	b_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 	
 	temp = *a;
 	while (temp->next)
@@ -27,11 +27,13 @@ void	ft_ra(b_list **a)
 	write(1, "ra\n", 3);
 }
 
-void	ft_rb(b_list **b)
+void	ft_rb(t_stack **b)
 {
-	b_list	*temp;
-	b_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 	
+	if (lstsize(*b) < 2)
+		return ;
 	temp = *b;
 	while (temp->next)
 		temp = temp->next;
@@ -42,12 +44,12 @@ void	ft_rb(b_list **b)
 	write(1, "rb\n", 3);
 }
 
-void	ft_rr(b_list **a, b_list **b)
+void	ft_rr(t_stack **a, t_stack **b)
 {
-	b_list	*temp;
-	b_list	*temp2;
-	b_list	*temp3;
-	b_list	*temp4;
+	t_stack	*temp;
+	t_stack	*temp2;
+	t_stack	*temp3;
+	t_stack	*temp4;
 	
 	temp = *a;
 	while (temp->next)
@@ -66,10 +68,10 @@ void	ft_rr(b_list **a, b_list **b)
 	write(1, "rr\n", 3);
 }
 
-void	ft_rra(b_list **a)
+void	ft_rra(t_stack **a)
 {
-	b_list	*temp;
-	b_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 
 	temp = *a;
 	temp2 = *a;
@@ -83,11 +85,13 @@ void	ft_rra(b_list **a)
 	write(1, "rra\n", 4);
 }
 
-void	ft_rrb(b_list **b)
+void	ft_rrb(t_stack **b)
 {
-	b_list	*temp;
-	b_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 
+	if (lstsize(*b) < 2)
+		return ;
 	temp = *b;
 	temp2 = *b;
 	while (temp->next)
@@ -100,12 +104,12 @@ void	ft_rrb(b_list **b)
 	write(1, "rrb\n", 4);
 }
 
-void	ft_rrr(b_list **a, b_list **b)
+void	ft_rrr(t_stack **a, t_stack **b)
 {
-	b_list	*temp;
-	b_list	*temp2;
-	b_list	*temp3;
-	b_list	*temp4;
+	t_stack	*temp;
+	t_stack	*temp2;
+	t_stack	*temp3;
+	t_stack	*temp4;
 	
 	temp = *a;
 	temp2 = *a;

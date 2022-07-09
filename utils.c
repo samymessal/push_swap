@@ -6,13 +6,13 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/07 17:56:35 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/09 18:48:08 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	lstsize(b_list *lst)
+int	lstsize(t_stack *lst)
 {
 	int	count;
 
@@ -25,9 +25,9 @@ int	lstsize(b_list *lst)
 	return (count);
 }
 
-void	lstaddback(b_list **list, b_list *new)
+void	lstaddback(t_stack **list, t_stack *new)
 {
-	b_list	*temp;
+	t_stack	*temp;
 	
 	if (!new)
 		return ;
@@ -42,11 +42,11 @@ void	lstaddback(b_list **list, b_list *new)
 	temp->next = new;
 }
 
-b_list	*lstnew(int num, int index)
+t_stack	*lstnew(int num, int index)
 {
-	b_list	*new;
+	t_stack	*new;
 	
-	new = malloc(sizeof(b_list));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->num = num;
@@ -55,9 +55,9 @@ b_list	*lstnew(int num, int index)
 	return (new);
 }
 
-int	ft_getmin(b_list *a)
+int	ft_getmin(t_stack *a)
 {
-	b_list	*temp;
+	t_stack	*temp;
 	int	min;
 
 	temp = a;
@@ -73,9 +73,9 @@ int	ft_getmin(b_list *a)
 	return (min);
 }
 
-int	ft_getmax(b_list *a)
+int	ft_getmax(t_stack *a)
 {
-	b_list	*temp;
+	t_stack	*temp;
 	int	max;
 
 	temp = a;
@@ -91,10 +91,46 @@ int	ft_getmax(b_list *a)
 	return (max);	
 }
 
-void	ft_uptade_index(b_list **a)
+t_stack	*ft_getmax_suit(t_stack *a)
+{
+	t_stack	*temp;
+	t_stack	*max;
+
+	temp = a;
+	max = a;
+	while(temp)
+	{
+		temp = temp->next;
+		if (temp->suit > max->suit)
+			max = temp;
+		if (temp->next == NULL)
+			break ; 
+	}
+	return (max);	
+}
+
+t_stack	*ft_getmin_cost(t_stack *b)
+{
+	t_stack	*temp;
+	t_stack	*min;
+
+	temp = b;
+	min = temp;
+	while(temp)
+	{
+		temp = temp->next;
+		if (temp->cost < min->cost)
+			min = temp;
+		if (temp->next == NULL)
+			break ; 
+	}
+	return (min);
+}
+
+void	ft_uptade_index(t_stack **a)
 {
 	int	i;
-	b_list	*temp;
+	t_stack	*temp;
 
 	i = 0;
 	temp = *a;
@@ -108,9 +144,9 @@ void	ft_uptade_index(b_list **a)
 	}
 }
 
-int	ft_issorted(b_list **a)
+int	ft_issorted(t_stack **a)
 {
-	b_list	*temp;
+	t_stack	*temp;
 
 	temp = *a;
 	while (temp)
@@ -122,10 +158,10 @@ int	ft_issorted(b_list **a)
 	return (1);
 }
 
-void	ft_ind_final(b_list **a)
+void	ft_ind_final(t_stack **a)
 {
-	b_list	*temp;
-	b_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 	int		ind_final;
 
 	temp = *a;
@@ -141,6 +177,52 @@ void	ft_ind_final(b_list **a)
 		}
 		temp->ind_final = ind_final;
 		temp = temp->next;
+	}
+}
+
+void	ft_coststack(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
+{
+	if (temp_a->index > lstsize(*a) / 2)
+	{
+		temp_b->cost = lstsize(*a) - temp_a->index;
+		if (temp_b->index > lstsize(*b) / 2)
+			temp_b->cost += lstsize(*b) - temp_b->index;
+		else
+			temp_b->cost += temp_b->index;
+	}
+	else
+	{
+		temp_b->cost = temp_a->index;
+		if (temp_b->index > lstsize(*b) / 2)
+			temp_b->cost += lstsize(*b) - temp_b->index;
+		else
+			temp_b->cost += temp_b->index;
+	}
+}
+
+void	ft_costb(t_stack **a, t_stack **b)
+{
+	t_stack	*temp_a;
+	t_stack	*temp_b;
+	int		count;
+
+	ft_uptade_index(a);
+	ft_uptade_index(b);
+	temp_b = *b;
+	count = 0;
+	while (temp_b)
+	{
+		temp_a = *a;
+		while (temp_a)
+		{
+			if (temp_a->ind_final > temp_b->ind_final)
+			{
+				ft_coststack(temp_a, temp_b, a, b);
+				break;
+			}
+			temp_a = temp_a->next;
+		}
+		temp_b = temp_b->next;
 	}
 }
 

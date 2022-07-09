@@ -6,15 +6,15 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:33:06 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/03 19:09:49 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/09 15:06:21 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_move(b_list **a, b_list **b)
+void	ft_move(t_stack **a, t_stack **b)
 {
-	b_list	*temp;
+	t_stack	*temp;
 	int		val;
 	int		index;
 
@@ -33,9 +33,9 @@ void	ft_move(b_list **a, b_list **b)
 	ft_uptade_index(a);
 }
 
-int	ft_getindex(b_list **a, int val)
+int	ft_getindex(t_stack **a, int val)
 {
-	b_list	*temp;
+	t_stack	*temp;
 
 	temp = *a;
 	while(temp)
@@ -49,7 +49,7 @@ int	ft_getindex(b_list **a, int val)
 	return (temp->index);
 }
 
-int	ft_cost(b_list **a)
+int	ft_cost(t_stack **a)
 {
 	int	min;
 	int	max;
@@ -72,7 +72,7 @@ int	ft_cost(b_list **a)
 		return(max);
 }
 
-void	ft_loop(b_list **a, b_list **b)
+void	ft_loop(t_stack **a, t_stack **b)
 {
 	while ((*a))
 	{
