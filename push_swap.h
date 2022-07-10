@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/09 18:50:02 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:25:24 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	ft_rr(t_stack **a, t_stack **b);
 void	ft_rra(t_stack **a);
 void	ft_rrb(t_stack **b);
 void	ft_move(t_stack **a, t_stack **b);
-int		ft_getmin(t_stack *a);
-int		ft_getmax(t_stack *a);
+t_stack	*ft_getmin(t_stack *a);
+t_stack	*ft_getmax(t_stack *a);
 t_stack	*ft_getmax_suit(t_stack *a);
 void	ft_loop(t_stack **a, t_stack **b);
 void	ft_uptade_index(t_stack **a);

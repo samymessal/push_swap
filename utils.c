@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/09 18:48:08 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:24:40 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,36 +55,36 @@ t_stack	*lstnew(int num, int index)
 	return (new);
 }
 
-int	ft_getmin(t_stack *a)
+t_stack	*ft_getmin(t_stack *a)
 {
 	t_stack	*temp;
-	int	min;
+	t_stack	*min;
 
 	temp = a;
-	min = temp->num;
+	min = temp;
 	while(temp)
 	{
 		temp = temp->next;
-		if (temp->num < min)
-			min = temp->num;
+		if (temp->num < min->num)
+			min = temp;
 		if (temp->next == NULL)
 			break ; 
 	}
 	return (min);
 }
 
-int	ft_getmax(t_stack *a)
+t_stack	*ft_getmax(t_stack *a)
 {
 	t_stack	*temp;
-	int	max;
+	t_stack	*max;
 
 	temp = a;
-	max = temp->num;
+	max = temp;
 	while(temp)
 	{
 		temp = temp->next;
-		if (temp->num > max)
-			max = temp->num;
+		if (temp->num > max->num)
+			max = temp;
 		if (temp->next == NULL)
 			break ; 
 	}

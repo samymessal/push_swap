@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/09 18:54:13 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:42:56 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	ft_sort3(t_stack **a)
 {
 	while (!ft_issorted(a))
 	{
-		if ((*a)->num == ft_getmax(*a))
+		if ((*a)->num == ft_getmax(*a)->num)
 			ft_ra(a);
-		else if ((*a)->next->num == ft_getmax(*a))
+		else if ((*a)->next->num == ft_getmax(*a)->num)
 			ft_rra(a);
-		else if ((*a)->next->next->num == ft_getmax(*a))
+		else if ((*a)->next->next->num == ft_getmax(*a)->num)
 			ft_sa(a);
 	}
 }
@@ -32,9 +32,9 @@ void	ft_sort5(t_stack **a, t_stack **b)
 	temp = *a;
 	while (temp && lstsize(*a) > 3)
 	{
-		if (temp->num == ft_getmin(*a))
+		if (temp->num == ft_getmin(*a)->num)
 		{
-			while ((*a)->num != ft_getmin(*a))
+			while ((*a)->num != ft_getmin(*a)->num)
 			{
 				if (temp->index > lstsize(*a) / 2)
 					ft_rra(a);
@@ -129,19 +129,40 @@ void	ft_final_push(t_stack **a, t_stack **b)
 	t_stack	*min;
 	t_stack	*temp;
 	//Ajouter les mouvements de stack A
+	ft_uptade_index(a);
+	ft_uptade_index(b);
 	if (lstsize(*b) > 1)
 	{
-		ft_uptade_index(b);
-		ft_uptade_index(a);
 		min = ft_getmin_cost(*b);
-		temp = *b;
-		while (temp->num != min->num)
+		while ((*b)->num != min->num)
 		{
 			if (min->index > lstsize(*b) / 2)
 				ft_rrb(b);
 			else
 				ft_rb(b);
 		}
+	}
+	else
+		min = *b;
+	if (min->ind_final == 0)
+		temp = ft_getmin(*a);
+	else if (min->ind_final == (lstsize(*a) + lstsize(*b) - 1))
+		temp = ft_getmax(*a);
+	else
+	{
+		temp = *a;
+		printf("lolo\nnum_temp: %d\nnum_b: %d\n", temp->num, min->num);
+		while (temp && temp->ind_final < min->ind_final)
+		{
+			temp = temp->next;
+		}
+	}
+	while ((*a)->num != temp->num)
+	{
+		if (temp->index > lstsize(*a) / 2)
+			ft_rra(a);
+		else
+			ft_ra(a);
 	}
 	ft_pa(a, b);
 }

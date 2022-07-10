@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:33:06 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/09 15:06:21 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:25:11 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,25 @@ int	ft_getindex(t_stack **a, int val)
 
 int	ft_cost(t_stack **a)
 {
-	int	min;
-	int	max;
+	t_stack	*min;
+	t_stack	*max;
 	int	index_max;
 	int	index_min;
 	int	mid;
 
 	min = ft_getmin(*a);
 	max = ft_getmax(*a);
-	index_max = ft_getindex(a, max);
-	index_min = ft_getindex(a, min);
+	index_max = ft_getindex(a, max->num);
+	index_min = ft_getindex(a, min->num);
 	mid = lstsize(*a)/2;
 	if (index_max > mid)
 		index_max = lstsize(*a) - index_max;
 	if (index_min > mid)
 		index_min = lstsize(*a) - index_min;
 	if (index_max > index_min)
-		return (min);
+		return (min->num);
 	else
-		return(max);
+		return(max->num);
 }
 
 void	ft_loop(t_stack **a, t_stack **b)
