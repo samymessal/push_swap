@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/10 17:24:40 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/21 18:08:48 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,11 +118,9 @@ t_stack	*ft_getmin_cost(t_stack *b)
 	min = temp;
 	while(temp)
 	{
-		temp = temp->next;
 		if (temp->cost < min->cost)
 			min = temp;
-		if (temp->next == NULL)
-			break ; 
+		temp = temp->next;
 	}
 	return (min);
 }
@@ -209,16 +207,37 @@ void	ft_costb(t_stack **a, t_stack **b)
 	ft_uptade_index(a);
 	ft_uptade_index(b);
 	temp_b = *b;
-	count = 0;
 	while (temp_b)
 	{
 		temp_a = *a;
+		count = 0;
 		while (temp_a)
 		{
-			if (temp_a->ind_final > temp_b->ind_final)
+			if (temp_b->num > ft_getmax(*a)->num)
 			{
 				ft_coststack(temp_a, temp_b, a, b);
+				printf("cas1: num %d\n", temp_b->num);
+				break ;
+			}
+			else if (temp_b->num < ft_getmin(*a)->num)
+			{
+				ft_coststack(temp_a, temp_b, a, b);
+				printf("cas2: num %d\n", temp_b->num);
+				break ;
+			}
+			else if (temp_a->next && temp_a->ind_final < temp_b->ind_final && temp_a->next->ind_final > temp_b->ind_final)
+			{
+				printf("cas3: num %d\n", temp_b->num);
+				ft_coststack(temp_a, temp_b, a, b);
 				break;
+			}
+			else if (!temp_a->next && temp_a->ind_final < temp_b->ind_final)
+			{
+				if ((*a)->ind_final > temp_b->ind_final)
+				{
+					ft_coststack(*a, temp_b, a, b);
+					break ;
+				}
 			}
 			temp_a = temp_a->next;
 		}

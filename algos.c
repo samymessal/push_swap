@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/10 17:42:56 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/21 15:48:17 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,6 @@ void	ft_final_push(t_stack **a, t_stack **b)
 	else
 	{
 		temp = *a;
-		printf("lolo\nnum_temp: %d\nnum_b: %d\n", temp->num, min->num);
 		while (temp && temp->ind_final < min->ind_final)
 		{
 			temp = temp->next;
