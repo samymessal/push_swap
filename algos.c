@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/22 12:57:53 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/22 15:05:53 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,26 +124,24 @@ void	ft_pushto_b(t_stack **a, t_stack **b)
 	}
 }
 
-void	ft_final_push(t_stack **a, t_stack **b)
+t_stack	*ft_get_b(t_stack **a, t_stack **b)
 {
 	t_stack	*min;
-	t_stack	*temp;
-	//Ajouter les mouvements de stack A
-	ft_uptade_index(a);
-	ft_uptade_index(b);
+	
 	if (lstsize(*b) > 1)
 	{
+		ft_costb(a, b);
 		min = ft_getmin_cost(*b);
-		while ((*b)->num != min->num)
-		{
-			if (min->index > lstsize(*b) / 2)
-				ft_rrb(b);
-			else
-				ft_rb(b);
-		}
 	}
 	else
 		min = *b;
+	return (min);
+}
+
+t_stack	*ft_get_a(t_stack **a, t_stack **b, t_stack	*min)
+{
+	t_stack	*temp;
+	
 	if (min->ind_final < ft_getmin(*a)->ind_final)
 		temp = ft_getmin(*a);
 	else if (min->ind_final > ft_getmax(*a)->ind_final)
@@ -163,14 +161,33 @@ void	ft_final_push(t_stack **a, t_stack **b)
 			temp = temp->next;
 		}
 	}
-	while ((*a)->num != temp->num)
+	return (temp);
+}
+
+void	ft_final_push(t_stack **a, t_stack **b)
+{
+	t_stack	*min_b;
+	t_stack	*min_a;
+	
+	min_b = ft_get_b(a, b);
+	min_a = ft_get_a(a, b, min_b);
+	while ((*b)->num != min_b->num)
 	{
-		if (temp->index > lstsize(*a) / 2)
+		ft_uptade_index(a);
+		ft_uptade_index(b);
+		if (min_b->index > lstsize(*b) / 2 && min_a->index > lstsize(*a))
+			ft_rrr(a, b);
+		else if (min_b->index < lstsize(*b) / 2 && min_a->index < lstsize(*a))
+			ft_rr(a, b);
+	}
+	while ((*a)->num != min_a->num)
+	{
+		if (min_a->index > lstsize(*a) / 2)
 			ft_rra(a);
 		else
 			ft_ra(a);
 	}
-	if (temp->num < min->num)
+	if (min_b->num < min_a->num)
 		ft_ra(a);
 	ft_pa(a, b);
 }
@@ -179,6 +196,21 @@ void	ft_all(t_stack **a, t_stack **b)
 {
 	while (*b)
 	{
+		//ft_costb(a, b);
 		ft_final_push(a, b);
+	}
+}
+
+void	ft_arrange(t_stack **a)
+{
+	t_stack	*min;
+
+	min = ft_getmin(*a);
+	while ((*a)->num != min->num)
+	{
+		if (min->index > lstsize(*a) / 2)
+			ft_rra(a);
+		else
+			ft_ra(a);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/22 12:40:16 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/22 14:17:07 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,6 @@ void	ft_costb(t_stack **a, t_stack **b)
 {
 	t_stack	*temp_a;
 	t_stack	*temp_b;
-	int		count;
 
 	ft_uptade_index(a);
 	ft_uptade_index(b);
@@ -210,24 +209,20 @@ void	ft_costb(t_stack **a, t_stack **b)
 	while (temp_b)
 	{
 		temp_a = *a;
-		count = 0;
 		while (temp_a)
 		{
 			if (temp_b->num > ft_getmax(*a)->num)
 			{
 				ft_coststack(temp_a, temp_b, a, b);
-				printf("cas1: num %d\n", temp_b->num);
 				break ;
 			}
 			else if (temp_b->num < ft_getmin(*a)->num)
 			{
 				ft_coststack(temp_a, temp_b, a, b);
-				printf("cas2: num %d\n", temp_b->num);
 				break ;
 			}
 			else if (temp_a->next && temp_a->ind_final < temp_b->ind_final && temp_a->next->ind_final > temp_b->ind_final)
 			{
-				printf("cas3: num %d\n", temp_b->num);
 				ft_coststack(temp_a, temp_b, a, b);
 				break;
 			}
@@ -235,7 +230,6 @@ void	ft_costb(t_stack **a, t_stack **b)
 			{
 				if ((*a)->ind_final > temp_b->ind_final)
 				{
-					printf("cas4: num %d\n", temp_b->num);
 					ft_coststack(*a, temp_b, a, b);
 					break ;
 				}
