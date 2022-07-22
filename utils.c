@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/21 18:08:48 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/22 12:40:16 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,6 +235,7 @@ void	ft_costb(t_stack **a, t_stack **b)
 			{
 				if ((*a)->ind_final > temp_b->ind_final)
 				{
+					printf("cas4: num %d\n", temp_b->num);
 					ft_coststack(*a, temp_b, a, b);
 					break ;
 				}

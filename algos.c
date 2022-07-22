@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/21 20:17:27 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/22 12:57:53 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,8 +151,15 @@ void	ft_final_push(t_stack **a, t_stack **b)
 	else
 	{
 		temp = *a;
-		while (temp && temp->ind_final < min->ind_final)
+		while (temp)
 		{
+			if (temp->next && temp->ind_final < min->ind_final && temp->next->ind_final > min->ind_final)
+				break ;
+			else if (!temp->next && temp->ind_final < min->ind_final)
+			{
+				if ((*a)->ind_final > temp->ind_final)
+					break ;
+			}
 			temp = temp->next;
 		}
 	}
@@ -165,8 +172,6 @@ void	ft_final_push(t_stack **a, t_stack **b)
 	}
 	if (temp->num < min->num)
 		ft_ra(a);
-	else
-		ft_rra(a);
 	ft_pa(a, b);
 }
 

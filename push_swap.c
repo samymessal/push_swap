@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/21 20:16:58 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/22 12:58:35 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 	// ft_final_push(&test, &test2);
 	// ft_final_push(&test, &test2);
 	// ft_final_push(&test, &test2);
-	//ft_final_push(&test, &test2);
+	// ft_final_push(&test, &test2);
 	ft_all(&test, &test2);
 
 	int len = 0;
