@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:48:43 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/09 15:06:30 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/23 15:40:35 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_pa(t_stack **a, t_stack **b)
 	*b = (*b)->next;
 	temp->next = *a;
 	*a = temp;
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	ft_pb(t_stack **a, t_stack **b)
@@ -75,5 +75,5 @@ void	ft_pb(t_stack **a, t_stack **b)
 	*a = (*a)->next;
 	temp->next = *b;
 	*b = temp;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 22:55:59 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/09 18:51:13 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/23 15:41:13 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_ra(t_stack **a)
 {
 	t_stack	*temp;
 	t_stack	*temp2;
-	
+
 	temp = *a;
 	while (temp->next)
 		temp = temp->next;
@@ -31,7 +31,7 @@ void	ft_rb(t_stack **b)
 {
 	t_stack	*temp;
 	t_stack	*temp2;
-	
+
 	if (lstsize(*b) < 2)
 		return ;
 	temp = *b;
@@ -50,7 +50,7 @@ void	ft_rr(t_stack **a, t_stack **b)
 	t_stack	*temp2;
 	t_stack	*temp3;
 	t_stack	*temp4;
-	
+
 	temp = *a;
 	while (temp->next)
 		temp = temp->next;
@@ -77,7 +77,7 @@ void	ft_rra(t_stack **a)
 	temp2 = *a;
 	while (temp->next)
 		temp = temp->next;
-	while(temp2->next->next)
+	while (temp2->next->next)
 		temp2 = temp2->next;
 	temp->next = *a;
 	*a = temp;
@@ -96,38 +96,10 @@ void	ft_rrb(t_stack **b)
 	temp2 = *b;
 	while (temp->next)
 		temp = temp->next;
-	while(temp2->next->next)
+	while (temp2->next->next)
 		temp2 = temp2->next;
 	temp->next = *b;
 	*b = temp;
 	temp2->next = NULL;
 	write(1, "rrb\n", 4);
-}
-
-void	ft_rrr(t_stack **a, t_stack **b)
-{
-	t_stack	*temp;
-	t_stack	*temp2;
-	t_stack	*temp3;
-	t_stack	*temp4;
-	
-	temp = *a;
-	temp2 = *a;
-	while (temp->next)
-		temp = temp->next;
-	while(temp2->next->next)
-		temp2 = temp2->next;
-	temp->next = *a;
-	*a = temp;
-	temp2->next = NULL;
-	temp3 = *b;
-	temp4 = *b;
-	while (temp3->next)
-		temp3 = temp3->next;
-	while(temp4->next->next)
-		temp4 = temp4->next;
-	temp3->next = *b;
-	*b = temp3;
-	temp4->next = NULL;
-	write(1, "rrr\n", 4);
 }
