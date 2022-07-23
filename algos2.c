@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:14:57 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/23 15:37:27 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/23 17:25:31 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	ft_final_b(t_stack **a, t_stack **b, t_stack *min_a, t_stack *min_b)
 		if (min_b->index > lstsize(*b) / 2 && min_a->index > lstsize(*a) / 2
 			&& (*a)->num != min_a->num)
 			ft_rrr(a, b);
-		else if (min_b->index < lstsize(*b) / 2
-			&& min_a->index < lstsize(*a) / 2 && (*a)->num != min_a->num)
+		else if (min_b->index <= lstsize(*b) / 2
+			&& min_a->index <= lstsize(*a) / 2 && (*a)->num != min_a->num)
 			ft_rr(a, b);
 		else if (min_b->index > lstsize(*b) / 2)
 			ft_rrb(b);

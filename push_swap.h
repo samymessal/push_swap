@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/23 15:47:18 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/23 17:14:38 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft/libft.h"
 # include <limits.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct a_list
 {
@@ -64,5 +65,6 @@ t_stack	*ft_get_b(t_stack **a, t_stack **b);
 void	ft_rrr(t_stack **a, t_stack **b);
 void	ft_final_b(t_stack **a, t_stack **b, t_stack *min_a, t_stack *min_b);
 int		ft_costb_1(t_stack **a, t_stack **b, t_stack *temp_a, t_stack *temp_b);
+void	ft_adj_cost(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b);
 
 #endif

@@ -6,11 +6,29 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:21:01 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/23 15:53:02 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/23 17:57:36 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_adj_cost(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
+{
+	if (temp_b->index > lstsize(*b) / 2 && temp_a->index > lstsize(*a) / 2)
+	{
+		if (temp_b->index >= temp_a->index)
+			temp_b->cost -= lstsize(*b) - temp_b->index;
+		else if (temp_b->index < temp_a->index)
+			temp_b->cost -= lstsize(*a) - temp_a->index;
+	}
+	else if (temp_b->index <= lstsize(*b) / 2 && temp_a->index <= lstsize(*a) / 2)
+	{
+		if (temp_b->index > temp_a->index)
+			temp_b->cost -= temp_a->index;
+		else if (temp_b->index < temp_a->index)
+			temp_b->cost -= temp_b->index;
+	}
+}
 
 void	ft_coststack(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
 {
@@ -30,6 +48,7 @@ void	ft_coststack(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
 		else
 			temp_b->cost += temp_b->index;
 	}
+	//ft_adj_cost(temp_a, temp_b, a, b);
 }
 
 int	ft_costb_1(t_stack **a, t_stack **b, t_stack *temp_a, t_stack *temp_b)
