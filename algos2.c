@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:14:57 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/23 17:25:31 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/24 20:41:38 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ void	ft_all(t_stack **a, t_stack **b)
 		else
 			ft_ra(a);
 	}
+	ft_uptade_index(a);
 }
