@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/23 15:31:13 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:19:54 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,17 @@ void	ft_sort3(t_stack **a)
 
 void	ft_sort5(t_stack **a, t_stack **b)
 {
-	t_stack	*temp;
-
-	temp = *a;
-	while (temp && lstsize(*a) > 3)
+	while (lstsize(*a) > 3)
 	{
-		if (temp->num == ft_getmin(*a)->num)
+		while ((*a)->num != ft_getmin(*a)->num)
 		{
-			while ((*a)->num != ft_getmin(*a)->num)
-			{
-				if (temp->index > lstsize(*a) / 2)
-					ft_rra(a);
-				else
-					ft_ra(a);
-			}
-			ft_pb(a, b);
-			ft_uptade_index(a);
-			temp = *a;
+			if (ft_getmin(*a)->index > lstsize(*a) / 2)
+				ft_rra(a);
+			else
+				ft_ra(a);
 		}
-		temp = temp->next;
+		ft_pb(a, b);
+		ft_uptade_index(a);
 	}
 	ft_sort3(a);
 	ft_pa(a, b);
@@ -56,13 +48,15 @@ void	ft_longsuit(t_stack **a)
 {
 	t_stack	*temp;
 	t_stack	*temp2;
+	int		suit;
 	int		stock;
 	int		count;
-
+	
 	temp = *a;
 	while (temp)
 	{
 		temp2 = temp;
+		suit = 0;
 		stock = temp2->num;
 		count = 0;
 		while (count++ < lstsize(*a))
@@ -109,7 +103,7 @@ void	ft_pushto_b(t_stack **a, t_stack **b)
 {
 	int	count;
 	int	size;
-
+	
 	size = lstsize(*a);
 	count = 0;
 	while (count < size)
@@ -121,3 +115,4 @@ void	ft_pushto_b(t_stack **a, t_stack **b)
 		count++;
 	}
 }
+

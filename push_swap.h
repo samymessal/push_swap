@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/23 17:14:38 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/26 16:58:46 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,13 @@ void	ft_costb(t_stack **a, t_stack **b);
 t_stack	*ft_getmin_cost(t_stack *b);
 void	ft_final_push(t_stack **a, t_stack **b);
 void	ft_all(t_stack **a, t_stack **b);
-t_stack	*ft_get_a(t_stack **a, t_stack **b, t_stack	*min);
+t_stack	*ft_get_a(t_stack **a, t_stack	*min);
 t_stack	*ft_get_b(t_stack **a, t_stack **b);
 void	ft_rrr(t_stack **a, t_stack **b);
 void	ft_final_b(t_stack **a, t_stack **b, t_stack *min_a, t_stack *min_b);
 int		ft_costb_1(t_stack **a, t_stack **b, t_stack *temp_a, t_stack *temp_b);
 void	ft_adj_cost(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b);
+void    ft_lstdel(t_stack *lst);
+void	ft_start_500(t_stack **a, t_stack **b);
 
 #endif

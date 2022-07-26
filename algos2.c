@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:14:57 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/24 20:41:38 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/26 00:21:09 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*ft_get_b(t_stack **a, t_stack **b)
 	return (min);
 }
 
-t_stack	*ft_get_a(t_stack **a, t_stack **b, t_stack	*min)
+t_stack	*ft_get_a(t_stack **a, t_stack	*min)
 {
 	t_stack	*temp;
 
@@ -76,9 +76,10 @@ void	ft_final_push(t_stack **a, t_stack **b)
 	t_stack	*min_a;
 
 	min_b = ft_get_b(a, b);
-	min_a = ft_get_a(a, b, min_b);
+	min_a = ft_get_a(a, min_b);
 	ft_uptade_index(a);
 	ft_uptade_index(b);
+	
 	ft_final_b(a, b, min_a, min_b);
 	while ((*a)->num != min_a->num)
 	{

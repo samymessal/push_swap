@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:21:01 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/24 20:46:19 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/26 17:38:36 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_adj_cost(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
 {
-	// if (temp_b->index > lstsize(*b) / 2 && temp_a->index > lstsize(*a) / 2)
-	// {
-	// 	if (temp_b->index >= temp_a->index)
-	// 		temp_b->cost -= lstsize(*a) - temp_a->index;
-	// 	else if (temp_b->index < temp_a->index)
-	// 		temp_b->cost -= lstsize(*b) - temp_b->index;
-	// }
-	if (temp_b->index <= lstsize(*b) / 2 && temp_a->index <= lstsize(*a) / 2)
+	if (temp_b->index > lstsize(*b) / 2 && temp_a->index > lstsize(*a) / 2)
+	{
+		if (temp_b->index >= temp_a->index)
+			temp_b->cost -= lstsize(*a) - temp_b->index;
+		else if (temp_b->index < temp_a->index)
+			temp_b->cost -= lstsize(*b) - temp_a->index;
+	}
+	else if (temp_b->index <= lstsize(*b) / 2 && temp_a->index <= lstsize(*a) / 2)
 	{
 		if (temp_b->index >= temp_a->index)
 			temp_b->cost -= temp_a->index;
