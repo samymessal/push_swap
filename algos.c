@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/26 16:19:54 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/27 14:22:46 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_longsuit(t_stack **a)
 {
 	t_stack	*temp;
 	t_stack	*temp2;
-	int		suit;
 	int		stock;
 	int		count;
 	
@@ -56,7 +55,6 @@ void	ft_longsuit(t_stack **a)
 	while (temp)
 	{
 		temp2 = temp;
-		suit = 0;
 		stock = temp2->num;
 		count = 0;
 		while (count++ < lstsize(*a))
