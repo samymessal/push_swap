@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/27 14:22:46 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/27 17:10:09 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_longsuit(t_stack **a)
 	t_stack	*temp2;
 	int		stock;
 	int		count;
-	
+
 	temp = *a;
 	while (temp)
 	{
@@ -78,6 +78,7 @@ void	ft_ind_push(t_stack **a)
 	t_stack	*stock;
 	int		count;
 
+	max = NULL;
 	max = ft_getmax_suit(*a);
 	max->push_b = 1;
 	stock = max;
@@ -101,7 +102,7 @@ void	ft_pushto_b(t_stack **a, t_stack **b)
 {
 	int	count;
 	int	size;
-	
+
 	size = lstsize(*a);
 	count = 0;
 	while (count < size)
@@ -113,4 +114,3 @@ void	ft_pushto_b(t_stack **a, t_stack **b)
 		count++;
 	}
 }
-

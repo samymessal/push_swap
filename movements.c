@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:48:43 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/23 15:40:35 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 12:02:48 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_sa(t_stack **a)
 	temp2->next = temp->next;
 	*a = temp;
 	(*a)->next = temp2;
+	write(1, "sa\n", 3);
 }
 
 void	ft_sb(t_stack **b)

@@ -6,12 +6,13 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:21:01 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/26 17:38:36 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/27 16:15:04 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
 void	ft_adj_cost(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
 {
 	if (temp_b->index > lstsize(*b) / 2 && temp_a->index > lstsize(*a) / 2)
@@ -29,7 +30,7 @@ void	ft_adj_cost(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
 			temp_b->cost -= temp_b->index;
 	}
 }
-
+*/
 void	ft_coststack(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
 {
 	if (temp_a->index > lstsize(*a) / 2)
@@ -48,7 +49,6 @@ void	ft_coststack(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b)
 		else
 			temp_b->cost += temp_b->index;
 	}
-	//ft_adj_cost(temp_a, temp_b, a, b);
 }
 
 int	ft_costb_1(t_stack **a, t_stack **b, t_stack *temp_a, t_stack *temp_b)

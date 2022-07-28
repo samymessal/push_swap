@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 17:57:12 by smessal           #+#    #+#              #
-#    Updated: 2022/07/27 14:43:16 by smessal          ###   ########.fr        #
+#    Updated: 2022/07/27 17:34:55 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ clean:
 
 fclean:		clean
 			$(MAKE) fclean -C ./libft
-			$(RM) $(OBJ)
+			$(RM) $(OBJ) $(PROG) $(NAME)
 
 re:					fclean $(NAME)
 

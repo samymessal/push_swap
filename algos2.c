@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:14:57 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/26 00:21:09 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/27 16:12:31 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	ft_final_push(t_stack **a, t_stack **b)
 	min_a = ft_get_a(a, min_b);
 	ft_uptade_index(a);
 	ft_uptade_index(b);
-	
 	ft_final_b(a, b, min_a, min_b);
 	while ((*a)->num != min_a->num)
 	{
