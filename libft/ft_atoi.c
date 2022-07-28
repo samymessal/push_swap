@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 14:58:26 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/28 16:42:20 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 17:44:52 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ long long int	ft_atoi(const char *nptr)
 	int				neg;
 	long long int	result;
 
+	if (ft_strlen(nptr) > 11)
+		return (2147483657);
 	i = 0;
 	neg = 1;
 	result = 0;
