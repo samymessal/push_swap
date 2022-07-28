@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/28 12:18:44 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 13:54:54 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ t_stack	*ft_table(int ac, char **arg)
 	if (!ft_checkdup(&a) || !ft_check_num(ac, arg))
 	{
 		write(1, "Error\n", 6);
+		ft_free_arg(ac, arg);
 		return (ft_lstdel(a), NULL);
 	}
-	ft_ind_final(&a);
-	return (a);
+	return (ft_free_arg(ac, arg), a);
 }
 
 void	ft_start_500(t_stack **a, t_stack **b)
@@ -65,6 +65,8 @@ int	main(int ac, char **av)
 	a = ft_table(ac, av);
 	if (!a)
 		return (0);
+	if (ft_issorted(&a))
+		return (ft_lstdel(a), 0);
 	b = NULL;
 	if (lstsize(a) <= 3)
 		ft_sort3(&a);

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:33:36 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/27 16:31:42 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 13:49:26 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_final_b(t_stack **a, t_stack **b, t_stack *min_a, t_stack *min_b);
 int		ft_costb_1(t_stack **a, t_stack **b, t_stack *temp_a, t_stack *temp_b);
 void	ft_adj_cost(t_stack *temp_a, t_stack *temp_b, t_stack **a, t_stack **b);
 void	ft_lstdel(t_stack *lst);
+void	ft_free_arg(int ac, char **arg);
 void	ft_start_500(t_stack **a, t_stack **b);
 
 #endif

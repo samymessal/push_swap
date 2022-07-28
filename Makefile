@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 17:57:12 by smessal           #+#    #+#              #
-#    Updated: 2022/07/28 12:24:10 by smessal          ###   ########.fr        #
+#    Updated: 2022/07/28 12:36:55 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS				=	push_swap.c utils.c utils2.c utils3.c movements.c \
 
 OBJ					=	$(SRCS:.c=.o)
 
-CC					=	gcc -g
+CC					=	gcc
 RM					=	rm -f
 CFLAGS				=	-Wall -Wextra -Werror
 
