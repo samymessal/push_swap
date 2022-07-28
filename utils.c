@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:42:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/28 11:37:23 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 12:32:05 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,14 @@ t_stack	*lstnew(int num, int index)
 {
 	t_stack	*new;
 
+	new = NULL;
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->num = num;
 	new->index = index;
 	new->next = NULL;
+	new->suit = 0;
 	return (new);
 }
 

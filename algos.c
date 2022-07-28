@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:57:40 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/27 17:10:09 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 12:14:23 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ void	ft_ind_push(t_stack **a)
 	t_stack	*stock;
 	int		count;
 
+	if (!(*a))
+		return ;
 	max = NULL;
+	stock = NULL;
 	max = ft_getmax_suit(*a);
 	max->push_b = 1;
 	stock = max;

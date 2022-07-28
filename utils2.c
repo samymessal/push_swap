@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 15:19:33 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/27 17:20:27 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 12:34:08 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_stack	*ft_getmax_suit(t_stack *a)
 	t_stack	*temp;
 	t_stack	*max;
 
+	temp = NULL;
+	max = NULL;
 	if (!a)
 		return (NULL);
 	temp = a;
@@ -85,6 +87,8 @@ void	ft_ind_final(t_stack **a)
 	t_stack	*temp2;
 	int		ind_final;
 
+	if (!(*a))
+		return ;
 	temp = *a;
 	temp2 = NULL;
 	while (temp)

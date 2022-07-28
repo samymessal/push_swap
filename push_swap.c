@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:15:38 by smessal           #+#    #+#             */
-/*   Updated: 2022/07/28 12:05:32 by smessal          ###   ########.fr       */
+/*   Updated: 2022/07/28 12:18:44 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
+	a = NULL;
 	a = ft_table(ac, av);
 	if (!a)
 		return (0);
