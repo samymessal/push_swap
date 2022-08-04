@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 17:57:12 by smessal           #+#    #+#              #
-#    Updated: 2022/07/28 12:36:55 by smessal          ###   ########.fr        #
+#    Updated: 2022/08/04 16:11:32 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,11 @@ $(NAME):	$(OBJ)
 			$(MAKE) all -C libft
 			cp libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJ)
-			$(CC) $(CFLAGS) -o $(PROG) $(SRC) $(NAME)
+			$(CC) $(CFLAGS) -o $(PROG) $(NAME)
 
 clean:		
 			$(MAKE) clean -C ./libft
-			$(RM) $(OBJ)
+			$(RM) $(OBJ) $(NAME)
 
 fclean:		clean
 			$(MAKE) fclean -C ./libft
